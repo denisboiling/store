@@ -16,12 +16,25 @@ export const getSummaryLineProps = (line: OrderLineFragment | CheckoutLineFragme
 				variantName: line.variant.translation?.name || line.variant.name,
 				productName: line.variant.product.translation?.name || line.variant.product.name,
 				productImage: getThumbnailFromLine(line),
-		  }
+			}
 		: {
 				variantName: line.variantName,
 				productName: line.productName,
 				productImage: line.thumbnail,
-		  };
+			};
+
+// Safe date formatting function to prevent hydration mismatch
+const formatDateTime = (dateTime: string): string => {
+	try {
+		return new Intl.DateTimeFormat("en-US", {
+			dateStyle: "medium",
+			timeZone: "UTC", // Use UTC to ensure consistency
+		}).format(new Date(dateTime));
+	} catch (error) {
+		// Fallback formatting if Intl.DateTimeFormat fails
+		return new Date(dateTime).toLocaleDateString("en-US");
+	}
+};
 
 export const useSummaryLineLineAttributesText = (line: CheckoutLineFragment | OrderLineFragment): string => {
 	const parsedValues =
@@ -34,7 +47,7 @@ export const useSummaryLineLineAttributesText = (line: CheckoutLineFragment | Or
 					}
 
 					if (dateTime) {
-						return new Intl.DateTimeFormat("EN-US", { dateStyle: "medium" }).format(new Date(dateTime));
+						return formatDateTime(dateTime);
 					}
 
 					return name;

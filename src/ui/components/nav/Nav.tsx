@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { UserMenuContainer } from "./components/UserMenu/UserMenuContainer";
+import { ClientUserMenu } from "./components/UserMenu/ClientUserMenu";
 import { CartNavItem } from "./components/CartNavItem";
 import { NavLinks } from "./components/NavLinks";
 import { MobileMenu } from "./components/MobileMenu";
@@ -15,9 +15,7 @@ export const Nav = ({ channel }: { channel: string }) => {
 				<div className="hidden lg:flex">
 					<SearchBar channel={channel} />
 				</div>
-				<Suspense fallback={<div className="w-8" />}>
-					<UserMenuContainer />
-				</Suspense>
+				<ClientUserMenu />
 			</div>
 			<div className="flex items-center">
 				<Suspense fallback={<div className="w-6" />}>

@@ -11,6 +11,9 @@ export const useMobileMenu = () => {
 	}, [pathname, searchParams]);
 
 	useEffect(() => {
+		// Check if window is available (client-side)
+		if (typeof window === "undefined") return;
+
 		const handleResize = (ev: MediaQueryListEvent) => {
 			if (ev.matches) {
 				setIsOpen(false);

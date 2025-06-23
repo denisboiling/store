@@ -1,12 +1,28 @@
 export const formatDate = (date: Date | number) => {
-	return new Intl.DateTimeFormat("en-US", { dateStyle: "medium" }).format(date);
+	try {
+		// Use consistent locale and options to prevent hydration mismatch
+		return new Intl.DateTimeFormat("en-US", {
+			dateStyle: "medium",
+			timeZone: "UTC", // Use UTC to ensure consistency
+		}).format(date);
+	} catch (error) {
+		// Fallback formatting if Intl.DateTimeFormat fails
+		const dateObj = new Date(date);
+		return dateObj.toLocaleDateString("en-US");
+	}
 };
 
-export const formatMoney = (amount: number, currency: string) =>
-	new Intl.NumberFormat("en-US", {
-		style: "currency",
-		currency,
-	}).format(amount);
+export const formatMoney = (amount: number, currency: string) => {
+	try {
+		return new Intl.NumberFormat("en-US", {
+			style: "currency",
+			currency,
+		}).format(amount);
+	} catch (error) {
+		// Fallback formatting if Intl.NumberFormat fails
+		return `${currency} ${amount.toFixed(2)}`;
+	}
+};
 
 export const formatMoneyRange = (
 	range: {
