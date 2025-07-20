@@ -11,28 +11,35 @@ export function ScrollableHeader({ topHeader, mainHeader }: ScrollableHeaderProp
 	const [showTopHeader, setShowTopHeader] = useState(true);
 
 	useEffect(() => {
-		const handleScroll = () => {
-			const currentScrollY = window.scrollY;
+		let timeoutId: NodeJS.Timeout;
 
-			// Показываем TopHeader только когда находимся в самом верху (в пределах 10px)
-			if (currentScrollY <= 10) {
-				setShowTopHeader(true);
-			} else {
-				setShowTopHeader(false);
-			}
+		const handleScroll = () => {
+			// Дебаунсинг для уменьшения частоты вызовов
+			clearTimeout(timeoutId);
+			timeoutId = setTimeout(() => {
+				const currentScrollY = window.scrollY;
+
+				// Показываем TopHeader только когда находимся в самом верху (в пределах 100px)
+				if (currentScrollY <= 70) {
+					setShowTopHeader(true);
+				} else {
+					setShowTopHeader(false);
+				}
+			}, 10); // Короткая задержка для сглаживания
 		};
 
 		window.addEventListener("scroll", handleScroll, { passive: true });
 
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
+			clearTimeout(timeoutId);
 		};
 	}, []);
 
 	return (
 		<header className="sticky top-0 z-20 bg-white">
 			<div
-				className={`overflow-hidden transition-all duration-300 ease-in-out ${
+				className={`overflow-hidden transition-all duration-200 ease-out ${
 					showTopHeader ? "max-h-10 opacity-100" : "max-h-0 opacity-0"
 				}`}
 			>
