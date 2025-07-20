@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Minus, Plus, ShoppingCart } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 import { LinkWithChannel } from "../atoms/LinkWithChannel";
 import { addToCartAction } from "@/app/[channel]/(main)/cart/actions";
 import { ProductImageWrapper } from "@/ui/atoms/ProductImageWrapper";
@@ -142,10 +142,7 @@ export function ProductElement({
 									<span>Добавляем...</span>
 								</>
 							) : (
-								<>
-									<ShoppingCart className="h-3 w-3" />
-									<span>В корзину</span>
-								</>
+								<span>В корзину</span>
 							)}
 						</button>
 					</div>

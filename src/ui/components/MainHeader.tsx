@@ -39,7 +39,7 @@ function SearchBar({ channel }: { channel: string }) {
 					size="icon"
 					className="absolute right-1 top-1 h-8 w-8 bg-blue-500 hover:bg-blue-600"
 				>
-					<Search className="h-4 w-4" />
+					<Search className="h-4 w-4 text-white" />
 				</Button>
 			</div>
 		</form>

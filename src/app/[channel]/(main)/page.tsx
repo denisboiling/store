@@ -5,6 +5,7 @@ import { ProductList } from "@/ui/components/ProductList";
 import { CategoriesSidebar } from "@/ui/components/CategoriesSidebar";
 import { MainBanner } from "@/ui/components/MainBanner";
 import { FeatureCards } from "@/ui/components/FeatureCards";
+import { Bestsellers } from "@/ui/components/Bestsellers";
 
 export const metadata = {
 	title: "Store - Интернет-магазин",
@@ -63,10 +64,13 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 				<FeatureCards />
 			</div>
 
+			{/* Bestsellers */}
+			<Bestsellers />
+
 			{/* Products Section */}
 			{products.length > 0 && (
 				<section className="mx-auto max-w-7xl p-8 pb-16">
-					<h2 className="mb-8 text-2xl font-bold text-gray-900">Рекомендуемые товары</h2>
+					<h2 className="mb-8 text-2xl font-bold text-gray-900">Популярные товары</h2>
 					<ProductList products={products} channel={params.channel} />
 				</section>
 			)}

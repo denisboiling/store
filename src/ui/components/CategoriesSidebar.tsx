@@ -18,7 +18,7 @@ export async function CategoriesSidebar({ channel }: CategoriesSidebarProps) {
 	const categories = navLinks.menu?.items?.filter((item) => item.category) || [];
 
 	return (
-		<div className="h-[410px] w-80 bg-white">
+		<div className="w-80 bg-white">
 			{/* All Categories - clean white style */}
 			<div className="border-b border-gray-100 bg-white p-4">
 				<LinkWithChannel href="/products">
