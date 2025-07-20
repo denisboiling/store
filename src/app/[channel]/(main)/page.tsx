@@ -67,7 +67,7 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 			{products.length > 0 && (
 				<section className="mx-auto max-w-7xl p-8 pb-16">
 					<h2 className="mb-8 text-2xl font-bold text-gray-900">Рекомендуемые товары</h2>
-					<ProductList products={products} />
+					<ProductList products={products} channel={params.channel} />
 				</section>
 			)}
 		</div>
