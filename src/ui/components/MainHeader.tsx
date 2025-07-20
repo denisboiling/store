@@ -1,4 +1,4 @@
-import { Search, MapPin, ShoppingCart, ShoppingBasket } from "lucide-react";
+import { Search, ShoppingCart, ShoppingBasket } from "lucide-react";
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import clsx from "clsx";
@@ -31,13 +31,13 @@ function SearchBar({ channel }: { channel: string }) {
 						placeholder="Поиск товаров, категорий или брендов..."
 						autoComplete="on"
 						required
-						className="h-10 w-full rounded-lg border border-gray-300 py-2 pl-4 pr-12 text-sm focus:border-purple-600 focus:ring-1 focus:ring-purple-600"
+						className="h-10 w-full rounded-lg border border-gray-300 py-2 pl-4 pr-12 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
 					/>
 				</label>
 				<Button
 					type="submit"
 					size="icon"
-					className="absolute right-1 top-1 h-8 w-8 bg-purple-600 hover:bg-purple-700"
+					className="absolute right-1 top-1 h-8 w-8 bg-blue-500 hover:bg-blue-600"
 				>
 					<Search className="h-4 w-4" />
 				</Button>
@@ -80,7 +80,7 @@ export function MainHeader({ channel }: MainHeaderProps) {
 					{/* Logo */}
 					<div className="flex items-center">
 						<LinkWithChannel href="/" className="flex items-center space-x-2">
-							<div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-600">
+							<div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500">
 								<ShoppingBasket className="h-6 w-6 text-white" />
 							</div>
 							<span className="text-xl font-bold text-gray-900">Store</span>
@@ -88,13 +88,13 @@ export function MainHeader({ channel }: MainHeaderProps) {
 					</div>
 
 					{/* Location */}
-					<div className="flex items-center space-x-2 text-sm">
+					{/* <div className="flex items-center space-x-2 text-sm">
 						<MapPin className="h-4 w-4 text-gray-500" />
 						<div>
 							<div className="text-gray-500">Доставка в</div>
 							<div className="font-medium">Москва</div>
 						</div>
-					</div>
+					</div> */}
 
 					{/* Search Bar */}
 					<SearchBar channel={channel} />

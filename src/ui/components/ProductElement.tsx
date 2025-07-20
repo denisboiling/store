@@ -12,7 +12,7 @@ export function ProductElement({
 	return (
 		<li data-testid="ProductElement">
 			<LinkWithChannel href={`/products/${product.slug}`} key={product.id}>
-				<div>
+				<div className="group relative rounded-lg border border-gray-200 bg-white transition-shadow hover:shadow-md">
 					{product?.thumbnail?.url && (
 						<ProductImageWrapper
 							loading={loading}
@@ -24,14 +24,12 @@ export function ProductElement({
 							priority={priority}
 						/>
 					)}
-					<div className="mt-2 flex justify-between">
-						<div>
-							<h3 className="mt-1 text-sm font-semibold text-neutral-900">{product.name}</h3>
-							<p className="mt-1 text-sm text-neutral-500" data-testid="ProductElement_Category">
-								{product.category?.name}
-							</p>
-						</div>
-						<p className="mt-1 text-sm font-medium text-neutral-900" data-testid="ProductElement_PriceRange">
+					<div className="p-4">
+						<h3 className="mb-1 text-sm font-medium text-gray-900">{product.name}</h3>
+						<p className="mb-2 text-sm text-gray-500" data-testid="ProductElement_Category">
+							{product.category?.name}
+						</p>
+						<p className="text-sm font-bold text-gray-900" data-testid="ProductElement_PriceRange">
 							{formatMoneyRange({
 								start: product?.pricing?.priceRange?.start?.gross,
 								stop: product?.pricing?.priceRange?.stop?.gross,

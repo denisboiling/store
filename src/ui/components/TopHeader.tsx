@@ -11,7 +11,7 @@ export function TopHeader() {
 						</span>
 						<span className="text-gray-600">
 							Напишите нам:{" "}
-							<a href="mailto:contact@store.ru" className="text-purple-600 hover:text-purple-700">
+							<a href="mailto:contact@store.ru" className="text-blue-500 hover:text-blue-600">
 								contact@store.ru
 							</a>
 						</span>
