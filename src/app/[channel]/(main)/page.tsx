@@ -52,7 +52,7 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 					</div>
 
 					{/* Main Content Area */}
-					<div className="flex-1 py-6 lg:my-[71px] lg:py-0 lg:pl-6">
+					<div className="flex-1 py-6 lg:mt-[71px] lg:py-0 lg:pl-6">
 						<MainBanner />
 					</div>
 				</div>
