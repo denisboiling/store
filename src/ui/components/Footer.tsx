@@ -3,7 +3,7 @@ import { LinkWithChannel } from "../atoms/LinkWithChannel";
 
 export async function Footer({ channel: _channel }: { channel: string }) {
 	return (
-		<footer className="mt-16 border-t border-gray-200 bg-gray-100">
+		<footer className="border-t border-gray-200 bg-gray-100">
 			<div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
 				<div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
 					{/* Left Section */}

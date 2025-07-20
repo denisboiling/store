@@ -31,7 +31,7 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div className="flex flex-col lg:flex-row">
 					{/* Sidebar - скрыт на мобильных */}
-					<div className="hidden lg:block">
+					<div className="hidden lg:mt-[30px] lg:block">
 						<Suspense
 							fallback={
 								<div className="h-[410px] w-80 animate-pulse border-r border-gray-100 bg-white">
@@ -53,7 +53,7 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 					</div>
 
 					{/* Main Content Area */}
-					<div className="flex-1 py-6 lg:mt-[71px] lg:py-0 lg:pl-6">
+					<div className="flex-1 py-6 lg:mt-[30px] lg:py-0 lg:pl-6">
 						<MainBanner />
 					</div>
 				</div>
@@ -71,7 +71,7 @@ export default async function Page(props: { params: Promise<{ channel: string }>
 			{products.length > 0 && (
 				<section className="mx-auto max-w-7xl p-8 pb-16">
 					<h2 className="mb-8 text-2xl font-bold text-gray-900">Популярные товары</h2>
-					<ProductList products={products} channel={params.channel} />
+					<ProductList products={products} channel={params.channel} columns={4} />
 				</section>
 			)}
 		</div>
