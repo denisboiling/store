@@ -21,14 +21,14 @@ function SearchBar({ channel }: { channel: string }) {
 	}
 
 	return (
-		<form action={onSubmit} className="mx-8 max-w-lg flex-1">
+		<form action={onSubmit} className="mx-2 flex-1 sm:mx-8 sm:max-w-lg">
 			<div className="relative">
 				<label className="w-full">
 					<span className="sr-only">Поиск товаров</span>
 					<input
 						type="text"
 						name="search"
-						placeholder="Поиск товаров, категорий или брендов..."
+						placeholder="Поиск товаров..."
 						autoComplete="on"
 						required
 						className="h-10 w-full rounded-lg border border-gray-300 py-2 pl-4 pr-12 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
@@ -39,7 +39,7 @@ function SearchBar({ channel }: { channel: string }) {
 					size="icon"
 					className="absolute right-1 top-1 h-8 w-8 bg-blue-500 hover:bg-blue-600"
 				>
-					<Search className="h-4 w-4 text-white" />
+					<Search className="h-4 w-4" />
 				</Button>
 			</div>
 		</form>
@@ -80,33 +80,18 @@ export function MainHeader({ channel }: MainHeaderProps) {
 					{/* Logo */}
 					<div className="flex items-center">
 						<LinkWithChannel href="/" className="flex items-center space-x-2">
-							<div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500">
-								<ShoppingBasket className="h-6 w-6 text-white" />
+							<div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500 sm:h-10 sm:w-10">
+								<ShoppingBasket className="h-4 w-4 text-white sm:h-6 sm:w-6" />
 							</div>
-							<span className="text-xl font-bold text-gray-900">Store</span>
+							<span className="text-lg font-bold text-gray-900 sm:text-xl">Store</span>
 						</LinkWithChannel>
 					</div>
-
-					{/* Location */}
-					{/* <div className="flex items-center space-x-2 text-sm">
-						<MapPin className="h-4 w-4 text-gray-500" />
-						<div>
-							<div className="text-gray-500">Доставка в</div>
-							<div className="font-medium">Москва</div>
-						</div>
-					</div> */}
 
 					{/* Search Bar */}
 					<SearchBar channel={channel} />
 
-					{/* Account & Cart */}
-					<div className="flex items-center space-x-4">
-						{/* <div className="relative">
-							<Heart className="h-6 w-6 text-gray-600" />
-							<Badge className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 p-0 text-xs text-white">
-								0
-							</Badge>
-						</div> */}
+					{/* Cart */}
+					<div className="flex items-center">
 						<Suspense
 							fallback={
 								<div className="relative">

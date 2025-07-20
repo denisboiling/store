@@ -3,10 +3,10 @@
 import { useTransition } from "react";
 import { deleteLineFromCheckout } from "./actions";
 
-type Props = {
+interface Props {
 	lineId: string;
 	checkoutId: string;
-};
+}
 
 export const DeleteLineButton = ({ lineId, checkoutId }: Props) => {
 	const [isPending, startTransition] = useTransition();
@@ -21,8 +21,8 @@ export const DeleteLineButton = ({ lineId, checkoutId }: Props) => {
 			}}
 			aria-disabled={isPending}
 		>
-			{isPending ? "Removing" : "Remove"}
-			<span className="sr-only">line from cart</span>
+			{isPending ? "Удаление..." : "Удалить"}
+			<span className="sr-only">товар из корзины</span>
 		</button>
 	);
 };
